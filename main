@@ -1,0 +1,14 @@
+#!/bin/bash
+zenity \
+--info --timeout 3 \
+--text="<span size=\"xx-large\">Time is $(date +%Hh%M).</span>\n\nGet your <b>coffee</b>." \
+--title="Coffee time" \
+--ok-label="Sip"
+
+zenity --question --timeout 1 --text="Backup completed. Suspend the system? \nThis dialog will timeout in 60 seconds, after which the system will suspend."
+
+if [[ $? -eq 1 ]] ; then
+	echo "test"
+else
+	echo "okeee"
+fi

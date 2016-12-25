@@ -1,0 +1,67 @@
+#!/bin/bash
+leng=$#
+x=(0 0 0 0 0 0 0 0 0 0)
+echo -n "Masukkan posisi sekarang : "
+read posisi
+echo -n "Masukkan posisi tujuan : "
+read tujuan
+
+for i in $@
+do
+	x[i]=$((( RANDOM % 2 ) + 1 ));
+done
+#############################
+echo "isi x = ${x[@]:1}"
+
+#awk '{}' patternMove
+
+for((i=1; i<=9; i++))
+do
+	x[i]=
+done
+echo "isi x = ${x[@]}"
+
+#############################
+
+load="0"
+
+declare $(awk 'BEGIN{
+a='$posisi';
+b='$tujuan';
+status=0;
+}
+	{
+		if( $1 == a ) {
+			for(i=2; i<=NF; i++) {
+				if( $i != 0 ) {
+					print "load=1"
+				} else {
+					print "load=0"
+				}
+		}
+	}
+}' patternMove )
+echo "load = $load"
+
+##############################################
+while [ $load == "1" ]
+do
+	declare $(awk 'BEGIN{
+	a='$posisi';
+	b='$tujuan';
+	status=0;
+	}
+		{
+			if( $1 == a ) {
+				for(i=2; i<=NF; i++) {
+					if( $i == b ) {
+						print "boleh=1"
+					} else {
+						print "boleh=0"
+					}
+				}
+			}
+		}' patternMove )
+echo "nilai x = $boleh"
+break;
+done

@@ -1,0 +1,10 @@
+#!/bin/bash
+	echo -e "\e[48;5;2151m"
+	awk 'BEGIN {b='$1'; c='$2';}
+	{
+		system("tput cup " b " " c)
+		print
+		b+=1
+	}' hapus
+	echo -e "\033[0m"
+tput cup 30 0

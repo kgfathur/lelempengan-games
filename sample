@@ -1,0 +1,21 @@
+#!/bin/bash
+
+	rArray=(2 4 6 10)
+	muih="1"
+	while [ $muih == "1" ]; do
+		vals=$(zenity --entry --title "Window title" --entry-text "${rArray[@]}" --text "Insert your choice.")
+		case $? in
+		0)
+			case $vals in
+				2|4|6|8)
+					muih="0" ;;
+				*)
+					muih="1" ;;
+			esac
+			echo "vals = $vals"
+			;;
+		1)
+			muih="0"
+			;;
+		esac
+	done

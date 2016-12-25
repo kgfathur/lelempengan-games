@@ -1,0 +1,3 @@
+#!/bin/bash
+mpg123 music.mp3 &
+ls

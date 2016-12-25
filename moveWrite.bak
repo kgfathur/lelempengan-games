@@ -1,0 +1,40 @@
+#!/bin/bash
+
+main() {
+echo "player 1 main"
+read -d'' -s -n1 input  # read input
+
+index=10  # init with nonexistent
+case $input in
+  7) index="11";;
+  8) index="12";;
+  9) index="13";;
+  4) index="21";;
+  5) index="22";;
+  6) index="23";;
+  1) index="31";;
+  2) index="32";;
+  3) index="33";;
+esac
+echo " nilai index = $index"
+}
+initPlayer() {
+	if [ "$player" == 1 ]
+	then
+		player=2;
+	else
+		player=1;
+	fi
+}
+
+games() {
+	echo "games player $player"
+}
+player=1
+clear
+while true
+do
+	main;
+	games;
+	initPlayer;
+done

@@ -1,0 +1,22 @@
+#!/bin/bash
+while true
+do
+	echo -n "Masukkan posisi sekarang : "
+	read posisi
+	echo -n "Masukkan posisi tujuan : "
+	read tujuan
+	declare $(awk 'BEGIN {a='$posisi'; b='$tujuan'; status=0}
+	{
+		if( $1 == a ) {
+			for(i=2; i<=NF; i++) {
+				if( $i == b ) {
+					print "boleh=1"
+					exit;
+				} else {
+					print "boleh=0"
+				}
+			}
+		}
+	}' patternMove )
+echo "nilai x = $x"
+done

@@ -1,0 +1,15 @@
+CATATAN :
+++++++ BUAT ARRAY MOVABLE LOCATION +++++++
+
+**cek pindah=3? kalo udah tambah pion=X
+
+**kalo pindah=3, pidah ke pos[play]=0, gabisa
+  kalo pindah ke pos[play] x= 0, bisa
+		if pos[play] = play :
+			clear pos[play]; clear pion; gantiPemain=0;  
+		else
+			gabisa, 
+
+**bikin inisialisai posisi sebelum pindah
+	bandingin kalo pindah sama, gantipemain=X
+
